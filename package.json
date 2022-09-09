@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "deploy": "gcloud functions deploy ailo-pdf --trigger-http --allow-unauthenticated --env-vars-file .env.yaml --entry-point pdf --region europe-west3 --memory 512MB --runtime nodejs16"
   },
   "keywords": [],
@@ -16,7 +16,10 @@
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "hbs": "^4.2.0",
+    "html-pdf": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.19",
     "puppeteer": "^14.0.0"
   },
   "devDependencies": {
