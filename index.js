@@ -178,6 +178,13 @@ app.post("/pdfbyjson", authenticateToken, async (req, res) => {
   res.send(pdf);
 });
 
+app.post("/bufferbyjson", authenticateToken, async (req, res) => {
+  const pdf = await generatePDFJson(req.body);
+  res.set("Content-Type", "application/octet-stream");
+  res.set("Content-Disposition", "attachment; filename=ailo.pdf");
+  res.send(pdf);
+});
+
 app.post("/pdfbylink", authenticateToken, async (req, res) => {
   if (req.body) {
     const pdf = await generatePDFByLink(req.body);
