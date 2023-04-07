@@ -114,7 +114,7 @@ const generatePDFByLink = async (link) => {
 };
 
 const generatePDFByHtml = async (html = "") => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   await page.setContent(html);
@@ -139,7 +139,7 @@ const generatePDFJson = async ({
   marginTop,
   marginBottom,
 }) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   await page.setContent(htmlBody);
